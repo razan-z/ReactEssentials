@@ -74,6 +74,7 @@ function App() {
               <TabButton
                 onSelect={() => handleSelect(concept.title.toLowerCase())}
                 label={concept.title}
+                isSelected={selectedTopic === concept.title.toLowerCase()}
               />
             ))}
           </menu>
