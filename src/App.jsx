@@ -31,47 +31,17 @@ function App() {
       <main>
         <section id="core-concepts">
           <ul>
-            {/* 
-            <CoreConcept
-              title="Components"
-              description="The core UI building block."
-              image={componentsImg}
-            /> 
-            */}
-
-            {/* an alternative way after adding data.js */}
-            {/*             
-            <CoreConcept
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            /> 
-            */}
-
-            {/* using destructuring since the atributs (props) have the same name as the data's key  */}
-            {/* <CoreConcept {...CORE_CONCEPTS[1]} /> */}
-
-            {/* Using for loop (❌ WRONG in JSX) */}
-            {/* 
-            for(const concept of CORE_CONCEPTS)
-            {<CoreConcept {...concept} />}; 
-            */}
-
             {CORE_CONCEPTS.map((concept) => (
-              <CoreConcept {...concept} />
+              <CoreConcept key={concept.title} {...concept} />
             ))}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            {/* Using Children */}
-            {/* <TabButton>Component</TabButton> */}
-            {/* Using Attributes */}
-            {/* <TabButton label="Components" /> */}
-            {/* Using map function*/}
             {CORE_CONCEPTS.map((concept) => (
               <TabButton
+                key={concept.title}
                 onSelect={() => handleSelect(concept.title.toLowerCase())}
                 label={concept.title}
                 isSelected={selectedTopic === concept.title.toLowerCase()}
